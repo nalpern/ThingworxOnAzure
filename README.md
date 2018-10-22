@@ -1,7 +1,22 @@
 # ThingworxOnAzure
 ARM template
 
-# To Run
+## How to run
+* Download azuredeploy.parameters.json
+* Make your edits
+* Click the Deploy to Azure button
+* Click "Edit Parameters" and upload your azuredeploy.parameters.json
+
+
+## Actions
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fkwhitehall%2FThingworxOnAzure%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://armviz.io/visualizebutton.png"/></a>
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkwhitehall%2FThingworxOnAzure%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/> 
+</a>
+
+
+## To Run via command line
 ```
 # Login
 az login
