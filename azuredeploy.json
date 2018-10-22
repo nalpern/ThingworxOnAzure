@@ -32,7 +32,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://github.com/kwhitehall/ThingworxOnAzure/nested/azuredeploy.vnet.json",
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.vnet.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {

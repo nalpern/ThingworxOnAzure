@@ -3,25 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string",
-            "defaultValue": "eastus",
-            "metadata": {
-                "description": "The location to create the resources"
-            }
+            "type": "string"
         },
         "vnetName": {
-            "type": "string",
-            "defaultValue": "myVirtualNetwork",
-            "metadata": {
-                "description": "The name of your VNET"
-            }
+            "type": "string"
         },
         "vnetAddressPrefix": {
-            "type": "string",
-            "defaultValue": "10.0.0.0/16",
-            "metadata": {
-                "description": "VNET Address prefix"
-            }
+            "type": "string"
         }        
     },
     "variables": {},
