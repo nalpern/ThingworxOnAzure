@@ -1,4 +1,5 @@
-# You must az login, set your subscription and script parameters from the README.md
+# This is for running a nested template locally
+You must az login, set your subscription and script parameters from the README.md
 
 ## Script parameters
 ```
