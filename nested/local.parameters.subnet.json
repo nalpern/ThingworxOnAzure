@@ -2,33 +2,36 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "vnetName": {
+            "value": "myVirtualNetwork"
+        },
         "subnetParam": {
             "value": {
                 "subnetConfig": [
                     {
                         "name": "APPGW",
                         "addressPrefix": "10.174.8.0/29",
-                        "nsgName": "HOW_NSG_DDA_TWXTEST_APPGW"
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-APPGW"
                     },
                     {
-                        "name": "TWX_CONN_SVR",
+                        "name": "TWX-CONN-SVR",
                         "addressPrefix": "10.174.8.16/28",
-                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXCONN"
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXCONN"
                     },
                     {
-                        "name": "TWX_ZOOKEEPER",
+                        "name": "TWX-ZOOKEEPER",
                         "addressPrefix": "10.174.8.64/28",
-                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXPLATFORM"
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
                     },
                     {
-                        "name": "TWX_PLATFORM",
+                        "name": "TWX-PLATFORM",
                         "addressPrefix": "10.174.8.48/28",
-                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXPLATFORM"
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
                     },
                     {
-                        "name": "TWX_IOT_HUB",
+                        "name": "TWX-IOT-HUB",
                         "addressPrefix": "10.174.8.32/28",
-                        "nsgName": "HOW_NSG_DDA_TWXTEST_IOTHUB"
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-IOTHUB"
                     }
                 ]
             }

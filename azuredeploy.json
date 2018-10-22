@@ -27,7 +27,7 @@
             "metadata": {
                 "description": "NSG JSON"
             }
-        }        
+        }
     },
     "resources": [
         {
@@ -78,13 +78,16 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
+                    "vnetName": {
+                        "value": "[parameters('vnetName')]"
+                    },
                     "subnetParam": {
                         "value": "[parameters('subnetParam')]"
                     }
                 }
             },
             "dependsOn": [
-                "linkedSubnet"
+                "linkedVNET"
             ]
         }
     ],
