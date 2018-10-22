@@ -1,0 +1,37 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subnetParam": {
+            "value": {
+                "subnetConfig": [
+                    {
+                        "name": "APPGW",
+                        "addressPrefix": "10.174.8.0/29",
+                        "nsgName": "HOW_NSG_DDA_TWXTEST_APPGW"
+                    },
+                    {
+                        "name": "TWX_CONN_SVR",
+                        "addressPrefix": "10.174.8.16/28",
+                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXCONN"
+                    },
+                    {
+                        "name": "TWX_ZOOKEEPER",
+                        "addressPrefix": "10.174.8.64/28",
+                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXPLATFORM"
+                    },
+                    {
+                        "name": "TWX_PLATFORM",
+                        "addressPrefix": "10.174.8.48/28",
+                        "nsgName": "HOW_NSG_DDA_TWXTEST_TWXPLATFORM"
+                    },
+                    {
+                        "name": "TWX_IOT_HUB",
+                        "addressPrefix": "10.174.8.32/28",
+                        "nsgName": "HOW_NSG_DDA_TWXTEST_IOTHUB"
+                    }
+                ]
+            }
+        }
+    }
+}

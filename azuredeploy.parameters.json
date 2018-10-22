@@ -9,7 +9,26 @@
             "value": "myVirtualNetwork"
         },
         "vnetAddressPrefix": {
-            "value": "10.0.0.0/16"
-        }
+            "value": "10.174.8.0/24"
+        },
+        "nsgParam":{
+            "value":{
+                "nsgConfig": [
+                    {
+                        "name" : "HOW-NSG-DDA-TWXTEST-APPGW"
+                    },
+                    {
+                        "name" : "HOW-NSG-DDA-TWXTEST-IOTHUB"
+                    },
+                    {
+                        "name" : "HOW-NSG-DDA-TWXTEST-TWXCONN"
+                    },
+                    {
+                        "name" : "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
+                    }
+                    
+                ]                
+            }
+        }        
     }
 }

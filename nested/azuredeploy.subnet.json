@@ -1,0 +1,29 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subnetParam": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2018-08-01",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[parameters('subnetParam').subnetConfig[copyIndex()].name]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressPrefix": "[parameters('subnetParam').subnetConfig[copyIndex()].addressPrefix]",
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetParam').subnetConfig[copyIndex()].nsgName)]"
+                }
+            },
+            "copy": {
+                "name": "subnetcopy",
+                "count": "[length(parameters('subnetParam').subnetConfig)]"
+            }
+        }
+    ],
+    "outputs": {}
+}

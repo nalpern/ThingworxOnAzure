@@ -2,13 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "eastus",
-            "metadata": {
-                "description": "The location to create the resources"
-            }
-        },
         "vnetName": {
             "type": "string",
             "defaultValue": "myVirtualNetwork",
@@ -22,9 +15,38 @@
             "metadata": {
                 "description": "VNET Address prefix"
             }
-        }
+        },
+        "subnetParam": {
+            "type": "object",
+            "metadata": {
+                "description": "VNET Subnet JSON"
+            }
+        },
+        "nsgParam": {
+            "type": "object",
+            "metadata": {
+                "description": "NSG JSON"
+            }
+        }        
     },
     "resources": [
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedNSG",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.nsg.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "nsgParam": {
+                        "value": "[parameters('nsgParam')]"
+                    }
+                }
+            }
+        },
         {
             "apiVersion": "2017-05-10",
             "name": "linkedVNET",
@@ -36,9 +58,6 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
                     "vnetName": {
                         "value": "[parameters('vnetName')]"
                     },
@@ -47,6 +66,26 @@
                     }
                 }
             }
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedSubnet",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.subnet.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "subnetParam": {
+                        "value": "[parameters('subnetParam')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "linkedSubnet"
+            ]
         }
     ],
     "outputs": {}

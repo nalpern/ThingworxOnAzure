@@ -15,4 +15,16 @@ az group deployment create \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.nsg.json \
   --parameters           @local.parameters.nsg.json
+
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.vnet.json \
+  --parameters           @local.parameters.vnet.json
+
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.subnet.json \
+  --parameters           @local.parameters.subnet.json    
 ```

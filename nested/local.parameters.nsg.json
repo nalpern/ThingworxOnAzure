@@ -1,18 +1,23 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters":{
-        "nsgParam":{
-            "value":{
+    "parameters": {
+        "nsgParam": {
+            "value": {
                 "nsgConfig": [
                     {
-                        "name" : "nsg1"
+                        "name": "HOW-NSG-DDA-TWXTEST-APPGW"
                     },
                     {
-                        "name" : "nsg2"
+                        "name": "HOW-NSG-DDA-TWXTEST-IOTHUB"
+                    },
+                    {
+                        "name": "HOW-NSG-DDA-TWXTEST-TWXCONN"
+                    },
+                    {
+                        "name": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
                     }
-                    
-                ]                
+                ]
             }
         }
     }
