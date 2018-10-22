@@ -20,14 +20,12 @@ az group create \
   --name        $resourceGroup \
   --location    $location
 
-
 # Deploy the ARM template
 az group deployment create \
   --name                 $deploymentName \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.json \
   --parameters           @azuredeploy.parameters.json 
-
 
 # Clean up resource group
 az group delete --name $resourceGroup
