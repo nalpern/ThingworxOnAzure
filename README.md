@@ -1,0 +1,2 @@
+# ThingworxOnAzure
+ARM template
