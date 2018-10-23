@@ -48,6 +48,27 @@
             "metadata": {
                 "description": "The Stream Analytics account name"
             }
+        },
+        "postgresqlName": {
+            "type": "string",
+            "defaultValue": "how-pgsql-twxtest-01",
+            "metadata": {
+                "description": "The PostgreSQL account name"
+            }
+        },
+        "postgresqlAdminLogin": {
+            "type": "string",
+            "defaultValue": "sqlAdmin",
+            "metadata": {
+                "description": "The PostgreSQL admin username"
+            }
+        },
+        "postgresqlAdminPassword": {
+            "type": "securestring",
+            "defaultValue": "MyS3re@tPassw0rd",
+            "metadata": {
+                "description": "The PostgreSQL admin password"
+            }
         }
     },
     "resources": [
@@ -160,6 +181,30 @@
                 "parameters": {
                     "streamAnalyticsName": {
                         "value": "[parameters('streamAnalyticsName')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedPostgreSQL",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.postgresql.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "postgresqlName": {
+                        "value": "[parameters('postgresqlName')]"
+                    },
+                    "postgresqlAdminLogin": {
+                        "value": "[parameters('postgresqlAdminLogin')]"
+                    },
+                    "postgresqlAdminPassword": {
+                        "value": "[parameters('postgresqlAdminPassword')]"
                     }
                 }
             },
