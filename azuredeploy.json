@@ -41,6 +41,13 @@
             "metadata": {
                 "description": "The CosmosDB account name"
             }
+        },
+        "streamAnalyticsName": {
+            "type": "string",
+            "defaultValue": "HOW-STREAM-TEST01",
+            "metadata": {
+                "description": "The Stream Analytics account name"
+            }
         }
     },
     "resources": [
@@ -135,6 +142,24 @@
                 "parameters": {
                     "storageAccountName": {
                         "value": "[parameters('cosmosDbName')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedStreamAnalytics",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.streamanalytics.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "streamAnalyticsName": {
+                        "value": "[parameters('streamAnalyticsName')]"
                     }
                 }
             },

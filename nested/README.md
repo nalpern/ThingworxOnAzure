@@ -53,4 +53,11 @@ az group deployment create \
   --template-file        azuredeploy.cosmosdb.json \
   --parameters           @local.parameters.cosmosdb.json   
 
+today=`date +%Y-%m-%d-%H-%M-%S`
+deploymentName="MyDeployment-$today"
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.streamanalytics.json \
+  --parameters           @local.parameters.streamanalytics.json   
 ```

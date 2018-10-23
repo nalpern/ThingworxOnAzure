@@ -62,6 +62,9 @@
         },
         "cosmosDbName": {
             "value": "how-cosmos-dda-twxtest01"
+        },
+        "streamAnalyticsName": {
+            "value": "HOW-STREAM-TEST01"
         }
     }
 }
