@@ -68,4 +68,12 @@ az group deployment create \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.postgresql.json \
   --parameters           @local.parameters.postgresql.json   
+
+today=`date +%Y-%m-%d-%H-%M-%S`
+deploymentName="MyDeployment-$today"
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.iothub.json \
+  --parameters           @local.parameters.iothub.json   
 ```

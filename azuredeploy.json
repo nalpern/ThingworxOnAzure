@@ -69,6 +69,13 @@
             "metadata": {
                 "description": "The PostgreSQL admin password"
             }
+        },
+        "iotHubName": {
+            "type": "string",
+            "defaultValue": "HOW-IOTHUB-TWXTEST-01",
+            "metadata": {
+                "description": "The IOT account name"
+            }
         }
     },
     "resources": [
@@ -205,6 +212,24 @@
                     },
                     "postgresqlAdminPassword": {
                         "value": "[parameters('postgresqlAdminPassword')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedIOTHub",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.iothub.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "iotHubName": {
+                        "value": "[parameters('iotHubName')]"
                     }
                 }
             },

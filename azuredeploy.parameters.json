@@ -74,6 +74,9 @@
         },
         "postgresqlAdminPassword": {
             "value": "MyS3re@tPassw0rd"
+        },
+        "iotHubName": {
+            "value": "HOW-IOTHUB-TWXTEST-01"
         }
     }
 }
