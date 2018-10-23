@@ -43,5 +43,14 @@ az group deployment create \
   --name                 $deploymentName \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.storage.json \
-  --parameters           @local.parameters.storage.json    
+  --parameters           @local.parameters.storage.json   
+
+today=`date +%Y-%m-%d-%H-%M-%S`
+deploymentName="MyDeployment-$today"
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.cosmosdb.json \
+  --parameters           @local.parameters.cosmosdb.json   
+
 ```

@@ -34,6 +34,13 @@
             "metadata": {
                 "description": "The storage account name"
             }
+        },
+        "cosmosDbName": {
+            "type": "string",
+            "defaultValue": "how-cosmos-dda-twxtest01",
+            "metadata": {
+                "description": "The CosmosDB account name"
+            }
         }
     },
     "resources": [
@@ -110,6 +117,24 @@
                 "parameters": {
                     "storageAccountName": {
                         "value": "[parameters('storageAccountName')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedCosmosDB",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.cosmosdb.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "storageAccountName": {
+                        "value": "[parameters('cosmosDbName')]"
                     }
                 }
             },

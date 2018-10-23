@@ -59,6 +59,9 @@
         },
         "storageAccountName": {
             "value": "howsaddatwxtest01"
+        },
+        "cosmosDbName": {
+            "value": "how-cosmos-dda-twxtest01"
         }
     }
 }
