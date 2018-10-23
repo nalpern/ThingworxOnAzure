@@ -161,7 +161,7 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
-                    "storageAccountName": {
+                    "cosmosDbName": {
                         "value": "[parameters('cosmosDbName')]"
                     }
                 }
