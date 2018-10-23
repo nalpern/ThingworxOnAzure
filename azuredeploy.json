@@ -27,6 +27,13 @@
             "metadata": {
                 "description": "NSG JSON"
             }
+        },
+        "storageAccountName": {
+            "type": "string",
+            "defaultValue": "howsaddatwxtest01",
+            "metadata": {
+                "description": "The storage account name"
+            }
         }
     },
     "resources": [
@@ -89,6 +96,24 @@
             "dependsOn": [
                 "linkedVNET"
             ]
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedStorage",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.storage.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "storageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    }
+                }
+            },
+            "dependsOn": []
         }
     ],
     "outputs": {}
