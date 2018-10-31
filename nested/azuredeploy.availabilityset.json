@@ -9,8 +9,11 @@
     "variables": {},
     "resources": [
         {
-           "type": "Microsoft.Compute/availabilitySets",
-            "name": "[parameters('availibilitySets')[copyIndex()]]", 
+            "type": "Microsoft.Compute/availabilitySets",
+            "name": "[parameters('availibilitySets')[copyIndex()]]",
+            "sku": {
+                "name": "Aligned"
+            },
             "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "properties": {
@@ -19,8 +22,8 @@
             },
             "copy": {
                 "name": "availibilitySetCopy",
-                "count": "[length(parameters('availibilitySets'))]" 
-            }            
+                "count": "[length(parameters('availibilitySets'))]"
+            }
         }
     ],
     "outputs": {}

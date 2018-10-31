@@ -84,15 +84,7 @@ az group deployment create \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.availabilityset.json \
   --parameters           @local.parameters.availabilityset.json   
-
-
-today=`date +%Y-%m-%d-%H-%M-%S`
-deploymentName="MyDeployment-$today"
-az group deployment create \
-  --name                 $deploymentName \
-  --resource-group       $resourceGroup \
-  --template-file        azuredeploy.vms.json \
-  --parameters           @local.parameters.vms.json   
+ 
 
 ############################################################
 # This is the same parameter file over and over for the VMs
@@ -112,6 +104,14 @@ az group deployment create \
   --name                 $deploymentName \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.vm-nic.json \
+  --parameters           @local.parameters.vm.json  
+
+today=`date +%Y-%m-%d-%H-%M-%S`
+deploymentName="MyDeployment-$today"
+az group deployment create \
+  --name                 $deploymentName \
+  --resource-group       $resourceGroup \
+  --template-file        azuredeploy.vm.json \
   --parameters           @local.parameters.vm.json  
 
 ```

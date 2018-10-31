@@ -14,8 +14,12 @@
                         "subnet": "TWX-CONN-SVR"
                     }
                 ],
-                "adminLogin": "vmAdmin",
-                "adminPassword": "MyS3re@tPassw0rd"
+                "adminLogin": "vmAdminUser",
+                "adminPassword": "MyS3re@tPassw0rd",
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
             }
         },
         "storageAccountName": {
