@@ -6,12 +6,85 @@
             "value": {
                 "vmConfig": [
                     {
+                        "comment": "ThingWorx Connection Server (primary)",
                         "vmName": "AZWEUTWX800",
                         "vmSize": "Standard_DS2_v2",
                         "publicIPAddress": "true",
                         "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-TWXCONN",
                         "nsg": "HOW-NSG-DDA-TWXTEST-TWXCONN",
                         "subnet": "TWX-CONN-SVR"
+                    },
+                    {
+                        "comment": "ThingWorx Connection Server (secondary)",
+                        "vmName": "AZWEUTWX801",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-TWXCONN",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXCONN",
+                        "subnet": "TWX-CONN-SVR"
+                    },
+                    {
+                        "comment": "ThingWorx  IoT Hub Connector",
+                        "vmName": "AZWEUTWX810",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-IOTHUB",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-IOTHUB",
+                        "subnet": "TWX-IOT-HUB"
+                    },
+                    {
+                        "comment": "ThingWorx Platform ThingWatcher / Thing Predictor (active)",
+                        "vmName": "AZWEUTWX820",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-TWXPLATFORM",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-PLATFORM"
+                    },
+                    {
+                        "comment": "ThingWorx Platform ThingWatcher / Thing Predictor (passive)",
+                        "vmName": "AZWEUTWX821",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-TWXPLATFORM",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-PLATFORM"
+                    },
+                    {
+                        "comment": "Zookeeper 01",
+                        "vmName": "AZWEUTWX830",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-ZOOKEEPER",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-ZOOKEEPER"
+                    },
+                    {
+                        "comment": "Zookeeper 02",
+                        "vmName": "AZWEUTWX831",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-ZOOKEEPER",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-ZOOKEEPER"
+                    },
+                    {
+                        "comment": "Zookeeper 03",
+                        "vmName": "AZWEUTWX832",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-ZOOKEEPER",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-ZOOKEEPER"
+                    },
+                    {
+                        "comment": "???????????????",
+                        "vmName": "AZWEUTWX840",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-PLATFORM"
                     }
                 ],
                 "adminLogin": "vmAdminUser",
