@@ -25,9 +25,7 @@
                         "name": "[concat(parameters('vmParam').vmConfig[copyIndex()].vmName,'-NIC-IPConfig')]",
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmParam').vmConfig[copyIndex()].vmName,'-PublicIP'))]"
-                            },
+                            "publicIPAddress": "[if(equals(parameters('vmParam').vmConfig[copyIndex()].publicIPAddress, 'true'), json(concat('{ \"id\" : \"',resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmParam').vmConfig[copyIndex()].vmName,'-PublicIP')), '\" }')), json('null'))]",
                             "subnet": {
                                 "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('vmParam').vmConfig[copyIndex()].subnet)]"
                             },

@@ -20,7 +20,7 @@
             "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "properties": {
-                "availabilitySet": "[if(equals(parameters('vmParam').vmConfig[copyIndex()].availabilitySet, ''), json('null'), resourceId('Microsoft.Compute/availabilitySets', parameters('vmParam').vmConfig[copyIndex()].availabilitySet))]",
+                "availabilitySet": "[if(equals(parameters('vmParam').vmConfig[copyIndex()].availabilitySet, ''), json('null'), json(concat('{ \"id\" : \"',resourceId('Microsoft.Compute/availabilitySets', parameters('vmParam').vmConfig[copyIndex()].availabilitySet), '\" }') ))]",
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmParam').vmConfig[copyIndex()].vmSize]"
                 },

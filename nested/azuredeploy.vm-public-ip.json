@@ -15,6 +15,7 @@
     "variables": {},
     "resources": [
         {
+            "condition": "[equals(parameters('vmParam').vmConfig[copyIndex()].publicIPAddress, 'true')]",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[concat(parameters('vmParam').vmConfig[copyIndex()].vmName,'-PublicIP')]",
             "apiVersion": "2018-02-01",
