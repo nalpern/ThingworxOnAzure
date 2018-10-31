@@ -77,6 +77,14 @@
         },
         "iotHubName": {
             "value": "HOW-IOTHUB-TWXTEST-01"
-        }
+        },
+        "availibilitySets": { 
+            "value": [ 
+                "HOW-AVAIL-DDA-TWXTEST-IOTHUB", 
+                "HOW-AVAIL-DDA-TWXTEST-TWXCONN", 
+                "HOW-NSG-DDA-TWXTEST-APPGW", 
+                "HOW-AVAIL-DDA-TWXTEST-ZOOKEEPER"
+             ] 
+         }        
     }
 }

@@ -76,6 +76,12 @@
             "metadata": {
                 "description": "The IOT account name"
             }
+        },
+        "availibilitySets": {
+            "type": "array",
+            "metadata": {
+                "description": "An array of availibility set names"
+            }
         }
     },
     "resources": [
@@ -230,6 +236,24 @@
                 "parameters": {
                     "iotHubName": {
                         "value": "[parameters('iotHubName')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedAvailibilitySets",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.availibilitySets.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "availibilitySets": {
+                        "value": "[parameters('availibilitySets')]"
                     }
                 }
             },

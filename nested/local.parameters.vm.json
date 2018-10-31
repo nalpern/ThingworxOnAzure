@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmParam": {
+            "value": {
+                "vmConfig": [
+                    {
+                        "vmName": "AZWEUTWX800",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "HOW-AVAIL-DDA-TWXTEST-TWXCONN",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXCONN",
+                        "subnet": "TWX-CONN-SVR"
+                    }
+                ],
+                "adminLogin": "vmAdmin",
+                "adminPassword": "MyS3re@tPassw0rd"
+            }
+        },
+        "storageAccountName": {
+            "value": "howsaddatwxtest01"
+        },
+        "vnetName": {
+            "value": "myVirtualNetwork"
+        }
+    }
+}
