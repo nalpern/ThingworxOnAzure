@@ -82,7 +82,13 @@
             "metadata": {
                 "description": "An array of availibility set names"
             }
-        }
+        },
+        "vmParam": {
+            "type": "object",
+            "metadata": {
+                "description": "VM configuration JSON"
+            }
+        }        
     },
     "resources": [
         {
@@ -258,6 +264,78 @@
                 }
             },
             "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedVMPublicIP",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.vm-public-ip.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "vmParam": {
+                        "value": "[parameters('vmParam')]"
+                    },
+                    "storageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    },
+                    "vnetName": {
+                        "value": "[parameters('vnetName')]"
+                    }
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedVMNIC",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.vm-nic.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "vmParam": {
+                        "value": "[parameters('vmParam')]"
+                    },
+                    "storageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    },
+                    "vnetName": {
+                        "value": "[parameters('vnetName')]"
+                    }
+                }
+            },
+            "dependsOn": ["linkedSubnet","linkedVMPublicIP"]
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedVM",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.vm.json",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "vmParam": {
+                        "value": "[parameters('vmParam')]"
+                    },
+                    "storageAccountName": {
+                        "value": "[parameters('storageAccountName')]"
+                    },
+                    "vnetName": {
+                        "value": "[parameters('vnetName')]"
+                    }
+                }
+            },
+            "dependsOn": ["linkedAvailibilitySets","linkedVMNIC"]
         }
     ],
     "outputs": {}
