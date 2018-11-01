@@ -85,15 +85,6 @@
                         "availabilitySet": "",
                         "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
                         "subnet": "TWX-PLATFORM"
-                    },
-                    {
-                        "comment": "ADAM TEST",
-                        "vmName": "adamtest",
-                        "vmSize": "Standard_DS2_v2",
-                        "publicIPAddress": "false",
-                        "availabilitySet": "",
-                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
-                        "subnet": "TWX-PLATFORM"
                     }
                 ],
                 "adminLogin": "vmAdminUser",
