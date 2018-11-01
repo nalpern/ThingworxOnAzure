@@ -10,7 +10,7 @@ location="eastus"
 az group create --name $resourceGroup --location $location
 ```
 
-## Test NSG Template
+## Test each nested template seperately
 You can run each of the below blocks from your local development machine
 ```
 today=`date +%Y-%m-%d-%H-%M-%S`
@@ -88,6 +88,7 @@ az group deployment create \
 
 ############################################################
 # This is the same parameter file over and over for the VMs
+# You will see the same three parameters passed even though they may not be used.  It was to keep things simple.
 ############################################################
 
 today=`date +%Y-%m-%d-%H-%M-%S`
