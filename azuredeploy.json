@@ -88,7 +88,7 @@
             "metadata": {
                 "description": "VM configuration JSON"
             }
-        }        
+        }
     },
     "resources": [
         {
@@ -124,32 +124,12 @@
                     },
                     "vnetAddressPrefix": {
                         "value": "[parameters('vnetAddressPrefix')]"
-                    }
-                }
-            }
-        },
-        {
-            "apiVersion": "2017-05-10",
-            "name": "linkedSubnet",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/kwhitehall/ThingworxOnAzure/master/nested/azuredeploy.subnet.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "vnetName": {
-                        "value": "[parameters('vnetName')]"
                     },
                     "subnetParam": {
                         "value": "[parameters('subnetParam')]"
                     }
                 }
-            },
-            "dependsOn": [
-                "linkedVNET"
-            ]
+            }
         },
         {
             "apiVersion": "2017-05-10",
@@ -311,7 +291,10 @@
                     }
                 }
             },
-            "dependsOn": ["linkedSubnet","linkedVMPublicIP"]
+            "dependsOn": [
+                "linkedVNET",
+                "linkedVMPublicIP"
+            ]
         },
         {
             "apiVersion": "2017-05-10",
@@ -335,7 +318,10 @@
                     }
                 }
             },
-            "dependsOn": ["linkedAvailibilitySets","linkedVMNIC"]
+            "dependsOn": [
+                "linkedAvailibilitySets",
+                "linkedVMNIC"
+            ]
         }
     ],
     "outputs": {}

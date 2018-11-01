@@ -40,7 +40,8 @@ az group deployment create \
   --name                 $deploymentName \
   --resource-group       $resourceGroup \
   --template-file        azuredeploy.json \
-  --parameters           @azuredeploy.parameters.json 
+  --parameters           @azuredeploy.parameters.json \
+  --mode                 Incremental
 
 # Clean up resource group
 az group delete --name $resourceGroup

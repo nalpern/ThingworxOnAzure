@@ -7,6 +7,37 @@
         },
         "vnetAddressPrefix": {
             "value": "10.174.8.0/24"
+        },
+        "subnetParam": {
+            "value": {
+                "subnetConfig": [
+                    {
+                        "name": "APPGW",
+                        "addressPrefix": "10.174.8.0/29",
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-APPGW"
+                    },
+                    {
+                        "name": "TWX-CONN-SVR",
+                        "addressPrefix": "10.174.8.16/28",
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXCONN"
+                    },
+                    {
+                        "name": "TWX-ZOOKEEPER",
+                        "addressPrefix": "10.174.8.64/28",
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
+                    },
+                    {
+                        "name": "TWX-PLATFORM",
+                        "addressPrefix": "10.174.8.48/28",
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM"
+                    },
+                    {
+                        "name": "TWX-IOT-HUB",
+                        "addressPrefix": "10.174.8.32/28",
+                        "nsgName": "HOW-NSG-DDA-TWXTEST-IOTHUB"
+                    }
+                ]
+            }
         }
     }
 }

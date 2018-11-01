@@ -7,6 +7,9 @@
         },
         "vnetAddressPrefix": {
             "type": "string"
+        },
+        "subnetParam": {
+            "type": "object"
         }
     },
     "variables": {},
@@ -21,7 +24,22 @@
                     "addressPrefixes": [
                         "[parameters('vnetAddressPrefix')]"
                     ]
-                }
+                },
+                "copy": [
+                    {
+                        "name": "subnets",
+                        "count": "[length(parameters('subnetParam').subnetConfig)]",
+                        "input": {
+                            "name": "[parameters('subnetParam').subnetConfig[copyIndex('subnets')].name]",
+                            "properties": {
+                                "addressPrefix": "[parameters('subnetParam').subnetConfig[copyIndex('subnets')].addressPrefix]",
+                                "networkSecurityGroup": {
+                                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetParam').subnetConfig[copyIndex('subnets')].nsgName)]"
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         }
     ],
