@@ -106,7 +106,8 @@
                         "value": "[parameters('nsgParam')]"
                     }
                 }
-            }
+            },
+            "dependsOn": []
         },
         {
             "apiVersion": "2017-05-10",
@@ -129,7 +130,8 @@
                         "value": "[parameters('subnetParam')]"
                     }
                 }
-            }
+            },
+            "dependsOn": ["linkedNSG"]
         },
         {
             "apiVersion": "2017-05-10",
