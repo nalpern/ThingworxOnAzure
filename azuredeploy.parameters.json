@@ -78,15 +78,15 @@
         "iotHubName": {
             "value": "HOW-IOTHUB-TWXTEST-01"
         },
-        "availibilitySets": { 
-            "value": [ 
-                "HOW-AVAIL-DDA-TWXTEST-IOTHUB", 
-                "HOW-AVAIL-DDA-TWXTEST-TWXCONN", 
+        "availibilitySets": {
+            "value": [
+                "HOW-AVAIL-DDA-TWXTEST-IOTHUB",
+                "HOW-AVAIL-DDA-TWXTEST-TWXCONN",
                 "HOW-AVAIL-DDA-TWXTEST-ZOOKEEPER",
                 "HOW-AVAIL-DDA-TWXTEST-TWXPLATFORM"
-             ] 
-         },
-         "vmParam": {
+            ]
+        },
+        "vmParam": {
             "value": {
                 "vmConfig": [
                     {
@@ -162,8 +162,17 @@
                         "subnet": "TWX-ZOOKEEPER"
                     },
                     {
-                        "comment": "???????????????",
+                        "comment": "ThingWorx Studio Experience Server",
                         "vmName": "AZWEUTWX840",
+                        "vmSize": "Standard_DS2_v2",
+                        "publicIPAddress": "true",
+                        "availabilitySet": "",
+                        "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
+                        "subnet": "TWX-PLATFORM"
+                    },
+                    {
+                        "comment": "ThingWorx Studio Analytics Server",
+                        "vmName": "AZWEUTWX841",
                         "vmSize": "Standard_DS2_v2",
                         "publicIPAddress": "true",
                         "availabilitySet": "",
