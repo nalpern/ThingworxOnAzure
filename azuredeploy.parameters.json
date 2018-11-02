@@ -78,6 +78,61 @@
         "iotHubName": {
             "value": "HOW-IOTHUB-TWXTEST-01"
         },
+        "appGatewayName": {
+            "value": "HOW-APPGATEWAY-TWXTEST-01"
+        },
+        "appGatewaySize": {
+            "value": "Standard_Medium"
+        },
+        "appGatewayInstanceCnt": {
+            "value": 1
+        },
+        "appGatewayVNetName": {
+            "value": "HOW-NSG-DDA-TWXTEST-APPGW"
+        },
+        "appGatewaySubnet": {
+            "value": "HOW-APPGATEWAY-SUBNET"
+        },
+        "appGatewaySubnetPrefix":{
+            "value":"10.0.0.0/24"
+        },
+        "frontendPort": {
+            "value": 80
+        },    
+        "backendPort": {
+            "value": 80
+        },
+        "backendIPAddresses":{
+            "value":[
+                {
+                  "IpAddress": "10.0.0.4"
+                },
+                {
+                  "IpAddress": "10.0.0.5"
+                }
+            ]
+        },
+        "cookieBasedAffinity": {      
+            "value": "Disabled"
+        },
+        "wafEnabled": {
+            "value": true
+        },
+        "wafMode": {
+            "value": "Detection"
+        },
+        "wafRuleSetType": {
+            "value": "OWASP"
+        },
+        "wafRuleSetVersion": {
+            "value": "3.0"   
+        },
+        "certData": {
+            "value": "HOW-SSLCERT-PFXDATA"
+        },
+        "certPassword": {
+            "value": "HOW-SSLCERT-PASSWORD"
+        },
         "availibilitySets": { 
             "value": [ 
                 "HOW-AVAIL-DDA-TWXTEST-IOTHUB", 
@@ -169,7 +224,8 @@
                         "availabilitySet": "",
                         "nsg": "HOW-NSG-DDA-TWXTEST-TWXPLATFORM",
                         "subnet": "TWX-PLATFORM"
-                    }
+                    },
+
                 ],
                 "adminLogin": "vmAdminUser",
                 "adminPassword": "MyS3re@tPassw0rd",
